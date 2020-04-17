@@ -94,7 +94,7 @@ func init() {
 
 func commentAction(c *cli.Context) error {
 	for _, val := range c.Args().Slice() {
-		format(val)
+		load(val)
 	}
 	return nil
 }
