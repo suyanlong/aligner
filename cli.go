@@ -45,7 +45,6 @@ func init() {
 			&cli.StringFlag{
 				Name:        "comment",
 				Aliases:     []string{"c"},
-				Value:       "#",
 				Usage:       "annotation symbols",
 				Destination: &comment,
 			},
@@ -53,7 +52,7 @@ func init() {
 				Name:        "path",
 				Aliases:     []string{"p"},
 				Value:       path,
-				Usage:       "annotation symbols",
+				Usage:       "alignment path",
 				Destination: &path,
 			},
 			&cli.BoolFlag{
@@ -68,7 +67,6 @@ func init() {
 				Aliases:     []string{"e"},
 				Usage:       "file extension",
 				Destination: &ext,
-				// Required:    true, //
 			},
 		},
 		Commands: cli.Commands{

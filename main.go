@@ -22,11 +22,12 @@ func main() {
 }
 
 func format(p string) {
-	if IsDir(p) {
-		load(p)
-	} else {
-		formatFile(p)
-	}
+	load(p)
+	//if IsDir(p) {
+	//	load(p)
+	//} else {
+	//	formatFile(p)
+	//}
 }
 
 func IsDir(p string) bool {
@@ -44,30 +45,24 @@ func IsDotFile(p string) bool {
 
 func IsFormatFile(p string) bool {
 	e := filepath.Ext(p)
-	if ext != "" && ext == e {
-
+	if e != "" && e == ext {
+		if comment == "" {
+			c, _ := langExt[e]
+			comment = c // TODO
+		}
 		return true
 	}
-	if e != "" {
-		c, ok := langExt[e]
-		comment = c // TODO
-		return ok
+
+	if ext == "" && comment != "" && e != "" {
+		return true
 	}
-	//panic("file extension not exist!")
 	return false
 }
-
-//func selfAdjust(file string)  {
-//	c, ok := langExt[e]
-//	comment = c // TODO
-//	return ok
-//}
 
 func load(rootPath string) {
 	err := filepath.Walk(
 		rootPath,
 		func(path string, info os.FileInfo, err error) error {
-			fmt.Println(path)
 			if info.IsDir() {
 				return nil
 			}
