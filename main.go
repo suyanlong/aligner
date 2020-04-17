@@ -70,7 +70,8 @@ func load(rootPath string) {
 				return nil
 			}
 			if IsFormatFile(path) {
-				formatFile(path)
+				//formatFile(path)
+				New(path).FormatFile()
 			}
 			return err
 		},

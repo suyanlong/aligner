@@ -122,7 +122,7 @@ class UpgradeType:
 SFB = int(ts.get("SFB")) if ts.get("SFB") else 8100  # 超级节点首次赠送
 IFB = int(ts.get("IFB")) if ts.get("IFB") else 1620  # 产业节点首次赠送
 
-
+# aligner disable
 class Bonus:
     FUT_IB = IFB  # 用户节点升产业节点首次赠送
     FUT_SB = SFB  # 用户节点升超级节点首次赠送
@@ -150,7 +150,7 @@ class ApiOperation:
     Notification = "notification"
     AcquireData = "acquire_data"
 
-
+# aligner enable
 class RebateCode:
     UIU_A = 10001000  # 用户节点推荐用户节点激活
     IIU_A = 1000100  # 产业节点推荐用户节点激活
