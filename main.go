@@ -5,58 +5,82 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"path/filepath"
 	"strings"
 
 	"github.com/huandu/xstrings"
-	"github.com/urfave/cli/v2"
 )
 
-var comment string
-var path string
-var replace bool
-
-func init() {
-	path, _ := os.Getwd()
-	app := &cli.App{
-		Flags: []cli.Flag{
-			&cli.StringFlag{
-				Name:        "comment",
-				Aliases:     []string{"c"},
-				Value:       "#",
-				Usage:       "annotation symbols",
-				Destination: &comment,
-			},
-			&cli.StringFlag{
-				Name:        "path",
-				Aliases:     []string{"p"},
-				Value:       path,
-				Usage:       "annotation symbols",
-				Destination: &path,
-			},
-			&cli.BoolFlag{
-				Name:        "replace",
-				Aliases:     []string{"r,w"},
-				Value:       true,
-				Usage:       "replace file",
-				Destination: &replace,
-			},
-		},
-		Name:    "aligner",
-		Usage:   "aliger fmt ./...",
-		Version: "1.0.0",
-		// Action: func(c *cli.Context) error {
-		// 	return nil
-		// },
-	}
-	err := app.Run(os.Args)
+func errorCheck(err error) {
 	if err != nil {
 		panic(err)
 	}
 }
 
 func main() {
-	fmt.Println("------")
-	format("./p")
+	errorCheck(app.Run(os.Args))
+}
+
+func format(p string) {
+	if IsDir(p) {
+		load(p)
+	} else {
+		formatFile(p)
+	}
+}
+
+func IsDir(p string) bool {
+	s, err := os.Stat(p)
+	errorCheck(err)
+	return s.IsDir()
+}
+
+func IsDotFile(p string) bool {
+	if strings.Index(filepath.Base(p), ".") == 0 {
+		return true
+	}
+	return false
+}
+
+func IsFormatFile(p string) bool {
+	e := filepath.Ext(p)
+	if ext != "" && ext == e {
+
+		return true
+	}
+	if e != "" {
+		c, ok := langExt[e]
+		comment = c // TODO
+		return ok
+	}
+	//panic("file extension not exist!")
+	return false
+}
+
+//func selfAdjust(file string)  {
+//	c, ok := langExt[e]
+//	comment = c // TODO
+//	return ok
+//}
+
+func load(rootPath string) {
+	err := filepath.Walk(
+		rootPath,
+		func(path string, info os.FileInfo, err error) error {
+			fmt.Println(path)
+			if info.IsDir() {
+				return nil
+			}
+			if IsDotFile(path) {
+				return nil
+			}
+			if IsFormatFile(path) {
+				formatFile(path)
+			}
+			return err
+		},
+	)
+	errorCheck(err)
 }
 
 func addBlankString(num int) string {
@@ -67,16 +91,14 @@ func addBlankString(num int) string {
 	return blankStr
 }
 
-func format(path string) {
+func formatFile(path string) {
 	f, err := os.Open(path)
-	if err != nil {
-		panic(err)
-	}
+	errorCheck(err)
 	defer f.Close()
 	reader := bufio.NewReader(f)
 	var contexts []string
 	var section []string
-	var maxDistance = 0
+	maxDistance := 0
 	for {
 		line, _, err := reader.ReadLine()
 		l := string(line)
@@ -102,16 +124,34 @@ func format(path string) {
 		}
 	}
 
-	newFile := path + ".ok"
-	wf, err := os.Create(newFile)
-	if err != nil {
-		panic(err)
+	if replace {
+		// TODO
+		out, err := os.Create(path)
+		defer out.Close()
+		errorCheck(err)
+		err = writer(out, contexts)
+		errorCheck(err)
+
+	} else {
+		fmt.Println("-----------" + path + "-----------")
+		err = writer(os.Stdout, contexts)
+		errorCheck(err)
+		fmt.Println("-----------" + path + "-----------")
 	}
-	defer wf.Close()
-	w := bufio.NewWriter(wf)
+}
+
+func TmpDir() string {
+	return filepath.Join(PWD(), "tmp")
+}
+
+func writer(w io.Writer, contexts []string) error {
+	bw := bufio.NewWriter(w)
 	for _, val := range contexts {
 		lineStr := fmt.Sprintf("%s", val)
-		fmt.Fprintln(w, lineStr)
+		_, err := fmt.Fprintln(bw, lineStr)
+		if err != nil {
+			return err
+		}
 	}
-	w.Flush()
+	return bw.Flush()
 }
