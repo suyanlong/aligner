@@ -40,7 +40,13 @@ func (c *Context) FormatFile() {
 	transfer := func() {
 		for _, val := range section {
 			lastIndex := strings.LastIndex(val, comment)
-			blank := addBlankString(maxDistance - lastIndex)
+			diff := maxDistance - lastIndex
+			if isCheck && diff > 0 {
+				info := "file : " + c.path + ", context: "
+				fmt.Println(info, section)
+				os.Exit(1)
+			}
+			blank := addBlankString(diff)
 			newLine := xstrings.Insert(val, blank, lastIndex)
 			c.contexts = append(c.contexts, newLine)
 		}

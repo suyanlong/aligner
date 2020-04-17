@@ -12,6 +12,7 @@ var (
 	path    string // 格式化路径
 	replace bool   // 是否替换
 	ext     string // 扩展名
+	isCheck bool
 )
 
 var langExt = map[string]string{
@@ -100,6 +101,10 @@ func commentAction(c *cli.Context) error {
 }
 
 func checkAction(c *cli.Context) error {
+	isCheck = true
+	for _, val := range c.Args().Slice() {
+		load(val)
+	}
 	return nil
 }
 
