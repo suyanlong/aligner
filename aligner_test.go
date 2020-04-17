@@ -27,9 +27,9 @@ func TestIsDotFile(t *testing.T) {
 }
 
 func TestIsFormatFile(t *testing.T) {
-	assert.True(t, IsFormatFile(".c++.cpp"))
+	comment = "#"
+	ext = ".py"
 	assert.True(t, IsFormatFile("python.py"))
-	assert.True(t, IsFormatFile("rust.rs"))
 
 	assert.False(t, IsFormatFile("rust.rss"))
 	assert.False(t, IsFormatFile("rust"))
