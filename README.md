@@ -1,5 +1,6 @@
 # aligner
-aligner
+
+Aligner is a perfect multi-line symbol column alignment tool
 
 
 * TODO 过滤
