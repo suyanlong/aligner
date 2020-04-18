@@ -53,6 +53,36 @@ GLOBAL OPTIONS:
 
 ```
 
+## Example
+
+### aligner before python.py file
+python.py:
+```python
+class GosTxType:
+    gosMallPay = "-10"  # XXXX
+    appPay = "-9"  # XXXX
+    ecPay = "-8"  # XXXXXXXXX
+    addPool = "-7"  # XXXXXXXXXX
+    cityFee = "-6"    # XXXXXXXX
+    taskFee = "-5"   # XXXXXXX
+ 
+```
+
+### aligner after python.py file
+```shell script
+aligner  -c "#"  -e ".py" ./python.py
+```
+python.py:
+```python
+class GosTxType:
+    gosMallPay = "-10"  # XXXX
+    appPay = "-9"       # XXXX
+    ecPay = "-8"        # XXXXXXXXX
+    addPool = "-7"      # XXXXXXXXXX
+    cityFee = "-6"      # XXXXXXXX
+    taskFee = "-5"      # XXXXXXX
+```
+
 ## Contribution Welcomed !
 
 Contributors
