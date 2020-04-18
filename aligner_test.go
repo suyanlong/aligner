@@ -9,8 +9,7 @@ import (
 func TestLoad(t *testing.T) {
 	//load("testdata")
 	//load("./")
-
-	t.Log(TmpDir())
+	//t.Log(TmpDir())
 }
 
 func TestIsDotFile(t *testing.T) {
