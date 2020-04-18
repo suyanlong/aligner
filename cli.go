@@ -97,6 +97,9 @@ func init() {
 }
 
 func commentAction(c *cli.Context) error {
+	if c.Args().Len() == 0 {
+		load(PWD())
+	}
 	for _, val := range c.Args().Slice() {
 		load(val)
 	}
