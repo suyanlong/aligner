@@ -82,6 +82,9 @@ class GosTxType:
     taskFee = "-5"      # XXXXXXX
 ```
 
+## use aligner
+![](static/example.gif)
+
 ## Contribution Welcomed !
 
 Contributors
