@@ -1,10 +1,9 @@
 # aligner
 
-Aligner is a perfect multi-line symbol column alignment tool, 
-
-cross-platform cli
+Aligner is a perfect multi-line symbol column alignment tool
 
 ## Feature
+* cross-platform
 * TODO 过滤
 * 开启代码段控制 aligner disable/enable
 * 文件修改监控格式化。后台进程守护。
