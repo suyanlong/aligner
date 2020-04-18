@@ -7,7 +7,7 @@
 
 NAME=aligner
 BINDIR=bin
-VERSION=$(shell git rev-parse --short HEAD)
+VERSION=$(shell git describe --tags || git rev-parse --short HEAD)
 BUILDTIME=$(shell date -u)
 GOBUILD=CGO_ENABLED=0 go build -ldflags '-X "github.com/suyanlong/aligner/version.Version=$(VERSION)" \
 		                                 -X "github.com/suyanlong/aligner/version.BuildTime=$(BUILDTIME)" \
