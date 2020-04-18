@@ -97,20 +97,22 @@ func init() {
 }
 
 func commentAction(c *cli.Context) error {
+	commonAction(c)
+	return nil
+}
+
+func commonAction(c *cli.Context) {
 	if c.Args().Len() == 0 {
 		load(PWD())
 	}
 	for _, val := range c.Args().Slice() {
 		load(val)
 	}
-	return nil
 }
 
 func checkAction(c *cli.Context) error {
 	isCheck = true
-	for _, val := range c.Args().Slice() {
-		load(val)
-	}
+	commonAction(c)
 	return nil
 }
 
