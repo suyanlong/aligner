@@ -1,8 +1,10 @@
 # aligner
 
-Aligner is a perfect multi-line symbol column alignment tool
+Aligner is a perfect multi-line symbol column alignment tool, 
 
+cross-platform cli
 
+## Feature
 * TODO 过滤
 * 开启代码段控制 aligner disable/enable
 * 文件修改监控格式化。后台进程守护。
@@ -22,7 +24,32 @@ go get github.com/suyanlong/aligner
 
 ## Usage
 
+install to PATH env
 ```shell script
+aligner -h
+
+NAME:
+   aligner - A new CI/CD cli, align multiple lines of single comments or symbols
+
+USAGE:
+   aligner [global options] command [command options] [arguments...]
+
+VERSION:
+    aligner 3e7cdaa darwin amd64 Sat Apr 18 02:58:46 UTC 2020
+
+
+COMMANDS:
+   comment  align multiple lines of single comments
+   check    aligner check whether the symbols are aligned
+   help, h  Shows a list of commands or help for one command
+
+GLOBAL OPTIONS:
+   --comment value, -c value  annotation symbols
+   --path value, -p value     alignment path (default: "/Users/suyanlong/github/aligner")
+   --replace, -r              replace file (default: false)
+   --ext value, -e value      file extension
+   --help, -h                 show help (default: false)
+   --version, -v              print the version (default: false)
 
 ```
 
