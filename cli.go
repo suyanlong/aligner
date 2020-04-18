@@ -1,9 +1,13 @@
 package main
 
 import (
+	"fmt"
 	"os"
+	"runtime"
 
 	"github.com/urfave/cli/v2"
+
+	"github.com/suyanlong/aligner/version"
 )
 
 var (
@@ -86,10 +90,9 @@ func init() {
 				Action:      checkAction,
 			},
 		},
-
 		Name:    "aligner",
 		Usage:   "A new CI/CD cli, align multiple lines of single comments or symbols",
-		Version: "1.0.0",
+		Version: fmt.Sprintf(" aligner %s %s %s %s\n", version.Version, runtime.GOOS, runtime.GOARCH, version.BuildTime),
 	}
 }
 
