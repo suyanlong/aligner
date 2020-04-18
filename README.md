@@ -12,3 +12,25 @@ Aligner is a perfect multi-line symbol column alignment tool
 * 第一行开启不控制
 * 自适应语言代码对齐格式化
 * 单行注释与左边的代码间距设置四个空格
+
+
+## How to get
+
+```
+go get github.com/suyanlong/aligner
+```
+
+## Usage
+
+```shell script
+
+```
+
+## Contribution Welcomed !
+
+Contributors
+
+* [suyanlong](https://github.com/suyanlong) 
+
+
+Report issue or pull request, or email 592938410@qq.com 
