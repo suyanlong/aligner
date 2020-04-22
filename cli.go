@@ -16,6 +16,7 @@ var (
 	path    string // 格式化路径
 	replace bool   // 是否替换
 	ext     string // 扩展名
+	ignore  string // 忽略指定的目录
 	isCheck bool
 )
 
@@ -72,6 +73,13 @@ func init() {
 				Aliases:     []string{"e"},
 				Usage:       "file extension",
 				Destination: &ext,
+			},
+			&cli.StringFlag{
+				Name:        "ignore",
+				Aliases:     []string{"i"},
+				Value:       "",
+				Usage:       "ignore file or direction",
+				Destination: &ignore,
 			},
 		},
 		Commands: cli.Commands{

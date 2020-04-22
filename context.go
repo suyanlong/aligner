@@ -128,6 +128,16 @@ func (c *Context) isSkip(line string) bool {
 	return false
 }
 
+func IsIgnore(path string) bool {
+	if ignore == "" {
+		return false
+	}
+	pi, err := filepath.Abs(ignore)
+	errorCheck(err)
+	p, err := filepath.Rel(PWD(), pi)
+	errorCheck(err)
+	return strings.Contains(path, p)
+}
 func IsDir(p string) bool {
 	s, err := os.Stat(p)
 	errorCheck(err)
@@ -161,6 +171,9 @@ func load(rootPath string) {
 	err := filepath.Walk(
 		rootPath,
 		func(path string, info os.FileInfo, err error) error {
+			if IsIgnore(path) {
+				return nil
+			}
 			if info.IsDir() {
 				return nil
 			}
