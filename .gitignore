@@ -31,3 +31,4 @@
 *aligner
 bin/*
 bin
+.DS_Store
