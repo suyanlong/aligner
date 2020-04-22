@@ -34,7 +34,7 @@ USAGE:
    aligner [global options] command [command options] [arguments...]
 
 VERSION:
-    aligner 3e7cdaa darwin amd64 Sat Apr 18 02:58:46 UTC 2020
+    aligner v1.0.0-2-g4e9cb99 darwin amd64 Wed Apr 22 11:26:05 UTC 2020
 
 
 COMMANDS:
@@ -47,6 +47,7 @@ GLOBAL OPTIONS:
    --path value, -p value     alignment path (default: "/Users/suyanlong/github/aligner")
    --replace, -r              replace file (default: false)
    --ext value, -e value      file extension
+   --ignore value, -i value   ignore file or direction
    --help, -h                 show help (default: false)
    --version, -v              print the version (default: false)
 
@@ -69,7 +70,7 @@ class GosTxType:
 
 ### aligner after python.py file
 ```shell script
-aligner  -c "#"  -e ".py" ./python.py
+aligner  -c "#"  -e ".py" comment ./python.py
 ```
 python.py:
 ```python
