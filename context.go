@@ -8,6 +8,7 @@ import (
 	"path/filepath"
 	"strings"
 
+	"github.com/cheggaaa/pb/v3"
 	"github.com/huandu/xstrings"
 )
 
@@ -121,11 +122,7 @@ func (c *Context) isSkip(line string) bool {
 	}
 
 	l := strings.TrimSpace(line)
-	if strings.Index(l, comment) <= 1 {
-		return true
-	}
-
-	return false
+	return strings.Index(l, comment) <= 1
 }
 
 func IsIgnore(path string) bool {
@@ -138,6 +135,7 @@ func IsIgnore(path string) bool {
 	errorCheck(err)
 	return strings.Contains(path, p)
 }
+
 func IsDir(p string) bool {
 	s, err := os.Stat(p)
 	errorCheck(err)
@@ -145,17 +143,17 @@ func IsDir(p string) bool {
 }
 
 func IsDotFile(p string) bool {
-	if strings.Index(filepath.Base(p), ".") == 0 {
-		return true
-	}
-	return false
+	return strings.Index(filepath.Base(p), ".") == 0
 }
 
 func IsFormatFile(p string) bool {
 	e := filepath.Ext(p)
 	if e != "" && e == ext {
 		if comment == "" {
-			c, _ := langExt[e]
+			c, is := langExt[e]
+			if !is {
+				return is
+			}
 			comment = c // TODO
 		}
 		return true
@@ -168,6 +166,13 @@ func IsFormatFile(p string) bool {
 }
 
 func load(rootPath string) {
+
+	var count int64 = 0
+	// create and start new bar
+	bar := pb.StartNew(int(count))
+	// finish bar
+	defer bar.Finish()
+
 	err := filepath.Walk(
 		rootPath,
 		func(path string, info os.FileInfo, err error) error {
@@ -182,11 +187,16 @@ func load(rootPath string) {
 			}
 			if IsFormatFile(path) {
 				New(path).FormatFile()
+				count++
+				bar.SetCurrent(count - 2)
+				bar.SetTotal(count)
+				bar.Increment()
 			}
 			return err
 		},
 	)
 	errorCheck(err)
+
 }
 
 func addBlankString(num int) string {
@@ -204,8 +214,8 @@ func TmpDir() string {
 func writer(w io.Writer, contexts []string) error {
 	bw := bufio.NewWriter(w)
 	for _, val := range contexts {
-		lineStr := fmt.Sprintf("%s", val)
-		_, err := fmt.Fprintln(bw, lineStr)
+		// lineStr := fmt.Sprintf("%s", val)
+		_, err := fmt.Fprintln(bw, val)
 		if err != nil {
 			return err
 		}
