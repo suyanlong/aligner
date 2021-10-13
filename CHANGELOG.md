@@ -1,12 +1,5 @@
 changelog
 
-## [1.0.5](https://github.com/suyanlong/aligner/compare/v1.0.4...v1.0.5) (2021-10-13)
-
-
-### Bug Fixes
-
-* 🐛Add file ([bd0fdc5](https://github.com/suyanlong/aligner/commit/bd0fdc510407323dd84b9c58aaf8a31e3d1b0445))
-
 ## [1.0.4](https://github.com/suyanlong/aligner/compare/v1.0.3...v1.0.4) (2021-10-13)
 
 
