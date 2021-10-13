@@ -44,6 +44,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-go-
 
+      - uses: actions/download-artifact@v2
+        with:
+          name: my-artifact
+      - name: Display structure of downloaded files
+        run: ls -R
 
     
   #     - name: go-semantic-release
