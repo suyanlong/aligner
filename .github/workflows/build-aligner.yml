@@ -50,6 +50,16 @@ jobs:
           name: aligner
           path: bin/
   
+      - name: codecov 
+        uses: codecov/codecov-action@v2
+        with:
+          files: ./coverage1.xml,./coverage2.xml # optional
+          flags: unittests # optional
+          name: codecov-umbrella # optional
+          fail_ci_if_error: true # optional (default = false)
+          verbose: true # optional (default = false)
+
+
   #     - name: go-semantic-release
   #       uses: go-semantic-release/action@v1.15.0
   # release:
