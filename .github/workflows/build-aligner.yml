@@ -47,7 +47,7 @@ jobs:
       - name : Upload artifact
         uses: actions/upload-artifact@v2
         with:
-          name: aligner
+          name: aligner-artifact
           path: bin/
 
   release:
@@ -56,6 +56,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+
+      - name: Build
+        run: make releases
 
       - name: Semantic Release
         uses: cycjimmy/semantic-release-action@v2
