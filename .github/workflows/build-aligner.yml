@@ -29,12 +29,6 @@ jobs:
               curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
               dep ensure
           fi
-
-      - name: Build
-        run: go build -v .
-      - name: Test
-        run: go test -v ./...
-
       - uses: actions/cache@v2
         with:
           path: |
@@ -43,6 +37,11 @@ jobs:
           key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
           restore-keys: |
             ${{ runner.os }}-go-
+            
+      - name: Build
+        run: go build -v .
+      - name: Test
+        run: go test -v ./...
 
       - uses: actions/upload-artifact@v2
         with:
