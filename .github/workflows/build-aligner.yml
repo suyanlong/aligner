@@ -49,31 +49,22 @@ jobs:
         with:
           name: aligner
           path: bin/
-  
-      - name: codecov 
-        uses: codecov/codecov-action@v2
+
+  release:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Semantic Release
+        uses: cycjimmy/semantic-release-action@v2
+        id: semantic   # 您需要一个`id`来使用输出变量
         with:
-          files: ./coverage1.xml,./coverage2.xml # optional
-          flags: unittests # optional
-          name: codecov-umbrella # optional
-          fail_ci_if_error: true # optional (default = false)
-          verbose: true # optional (default = false)
-
-
-  #     - name: go-semantic-release
-  #       uses: go-semantic-release/action@v1.15.0
-  # release:
-  #   runs-on: ubuntu-latest
-  #   needs: build
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - uses: go-semantic-release/action@v1
-  #       id: semrel
-  #       with:
-  #         github-token: ${{ secrets.GITHUB_TOKEN }}
-  #         update-file: package.json
-  #         changelog-generator-opt: "emojis=true"
-  #     - run: npm publish
-  #       if: steps.semrel.outputs.version != ''
-  #       env:
-  #         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          branch: master
+          semantic_version: 15.13.28
+          extra_plugins: |
+            @semantic-release/git
+            @semantic-release/changelog
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
