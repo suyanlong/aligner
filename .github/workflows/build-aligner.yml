@@ -64,9 +64,9 @@ jobs:
           branch: master
           # semantic_version: 15.13.28
           extra_plugins: |
-            @semantic-release/git
             @semantic-release/changelog
-            @semantic-release/github
+            @semantic-release/git
+
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
