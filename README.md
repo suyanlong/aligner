@@ -91,6 +91,6 @@ class GosTxType:
 Contributors
 
 * [suyanlong](https://github.com/suyanlong) 
-
+* [suyanlong](https://github.com/suyanlong) 
 
 Report issue or pull request, or email 592938410@qq.com 
