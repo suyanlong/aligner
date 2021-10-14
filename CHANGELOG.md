@@ -1,5 +1,21 @@
 changelog
 
+## [1.0.6](https://github.com/suyanlong/aligner/compare/v1.0.5...v1.0.6) (2021-10-14)
+
+
+### Bug Fixes
+
+* 🐛version control: Add github action for auto publish release and tag version ([f6fbf5b](https://github.com/suyanlong/aligner/commit/f6fbf5bc3ad89623ea0459318de8d20da678673f))
+* 🐛version control: Add github action for auto publish release and tag version ([8aec57e](https://github.com/suyanlong/aligner/commit/8aec57e392cc6fa0daf6ceec20432b400619bd4f))
+* 🐛version control: Add github action for auto publish release and tag version ([08f184d](https://github.com/suyanlong/aligner/commit/08f184d6770fa19dc9960d18ab594bdbb953eb82))
+* 🐛version control: Add github action for auto publish release and tag version ([c94700f](https://github.com/suyanlong/aligner/commit/c94700fe5f34cd638025982e40e86be645ce4bd9))
+* 🐛version control: Add github action for auto publish release and tag version ([6d1e370](https://github.com/suyanlong/aligner/commit/6d1e37082dec55c896730a9b5820a5195adf97f3))
+* 🐛version control: Add github action for auto publish release and tag version ([4a929d7](https://github.com/suyanlong/aligner/commit/4a929d756071932257ba09c0473c1f9bd6e6da0b))
+* 🐛version control: Add github action for auto publish release and tag version ([6c189be](https://github.com/suyanlong/aligner/commit/6c189bea90cbd76a42c248f2f145ecb225ee379b))
+* 🐛version control: Add github action for auto publish release and tag version ([4112d21](https://github.com/suyanlong/aligner/commit/4112d21f2019383662be3f55b0d88520e7c94af1))
+* 🐛version control: Add github action for auto publish release and tag version ([66949eb](https://github.com/suyanlong/aligner/commit/66949eb6903fe289bad085e3e3bff9e6cef75e65))
+* 🐛version control: Add github action for auto publish release and tag version ([c454e7b](https://github.com/suyanlong/aligner/commit/c454e7b5b5500f5466598dafe70ac2f84ae07cf4))
+
 ## [1.0.5](https://github.com/suyanlong/aligner/compare/v1.0.4...v1.0.5) (2021-10-13)
 
 
