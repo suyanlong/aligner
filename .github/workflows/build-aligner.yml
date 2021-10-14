@@ -7,48 +7,47 @@ on:
     branches: [ master ]
 
 jobs:
+  # build:
+  #   name: Build
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Set up Go 1.14.1
+  #       uses: actions/setup-go@v1
+  #       with:
+  #         go-version: 1.14.1
+  #       id: go
 
-  build:
-    name: Build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Set up Go 1.14.1
-        uses: actions/setup-go@v1
-        with:
-          go-version: 1.14.1
-        id: go
+  #     - name: Check out code into the Go module directory
+  #       uses: actions/checkout@v2
 
-      - name: Check out code into the Go module directory
-        uses: actions/checkout@v2
-
-      - name: Get dependencies
-        run: |
-          go get -v -t -d ./...
-          if [ -f Gopkg.toml ]; then
-              curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
-              dep ensure
-          fi
+  #     - name: Get dependencies
+  #       run: |
+  #         go get -v -t -d ./...
+  #         if [ -f Gopkg.toml ]; then
+  #             curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
+  #             dep ensure
+  #         fi
       
-      - name: cache dependencies
-        uses: actions/cache@v2
-        with:
-          path: |
-            ~/.cache/go-build
-            ~/go/pkg/mod
-          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
-          restore-keys: |
-            ${{ runner.os }}-go-
+  #     - name: cache dependencies
+  #       uses: actions/cache@v2
+  #       with:
+  #         path: |
+  #           ~/.cache/go-build
+  #           ~/go/pkg/mod
+  #         key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+  #         restore-keys: |
+  #           ${{ runner.os }}-go-
 
-      - name: Build
-        run: make releases
-      - name: Test
-        run: go test -v ./...
+  #     - name: Build
+  #       run: make releases
+  #     - name: Test
+  #       run: go test -v ./...
 
-      - name : Upload artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: aligner-artifact
-          path: bin/
+  #     - name : Upload artifact
+  #       uses: actions/upload-artifact@v2
+  #       with:
+  #         name: aligner-artifact
+  #         path: bin/
 
   release:
     runs-on: ubuntu-latest
@@ -78,7 +77,6 @@ jobs:
 
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-          # z33
 
       - name: Do something when a new release published
         if: steps.semantic.outputs.new_release_published == 'true'
