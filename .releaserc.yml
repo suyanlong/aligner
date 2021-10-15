@@ -1,6 +1,6 @@
 { "branches": ["master", "next"], 
   "plugins": [
-      "@semantic-release/commit-analyzer", #Default 1
+      # "@semantic-release/commit-analyzer", #Default 1
       "@semantic-release/release-notes-generator", #Default 2
       [
         "@semantic-release/changelog",
