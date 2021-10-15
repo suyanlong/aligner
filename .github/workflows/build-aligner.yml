@@ -75,7 +75,7 @@ jobs:
         id: semantic   # 您需要一个`id`来使用输出变量
         with:
           branch: master
-          # semantic_version: 15.13.28
+          semantic_version: 0.2
           extra_plugins: |
             @semantic-release/changelog
             @semantic-release/git
