@@ -1,5 +1,12 @@
 changelog
 
+## [1.0.7](https://github.com/suyanlong/aligner/compare/v1.0.6...v1.0.7) (2021-10-15)
+
+
+### Bug Fixes
+
+*  ci ([8dc2a7b](https://github.com/suyanlong/aligner/commit/8dc2a7b2542c5f6827917b3c2f37abeacd816a48))
+
 ## [1.0.6](https://github.com/suyanlong/aligner/compare/v1.0.5...v1.0.6) (2021-10-14)
 
 
