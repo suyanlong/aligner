@@ -1,5 +1,13 @@
 changelog
 
+## [1.1.1](https://github.com/suyanlong/aligner/compare/v1.1.0...v1.1.1) (2021-10-18)
+
+
+### Bug Fixes
+
+* fix ci and add manually auto publish release ([72f6ef3](https://github.com/suyanlong/aligner/commit/72f6ef35ab421ac64e9f9689eaf36132af87891d))
+* fix ci and add manually auto publish release ([80f0893](https://github.com/suyanlong/aligner/commit/80f0893d890700ce70357db19cf3c6ecc745d784))
+
 # [1.1.0](https://github.com/suyanlong/aligner/compare/v1.0.4...v1.1.0) (2021-10-18)
 
 

@@ -1,6 +1,6 @@
 package version
 
 var (
-	Version   = "unknown version"
+	Version   = "1.1.1"unknown version"
 	BuildTime = "unknown time"
 )
