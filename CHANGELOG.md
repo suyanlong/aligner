@@ -1,5 +1,12 @@
 changelog
 
+## [1.1.2](https://github.com/suyanlong/aligner/compare/v1.1.1...v1.1.2) (2021-10-18)
+
+
+### Bug Fixes
+
+* Adjust github action ([56b5f29](https://github.com/suyanlong/aligner/commit/56b5f29d1371ec0ef0ee68bb9a158a85469e5a05))
+
 ## [1.1.1](https://github.com/suyanlong/aligner/compare/v1.1.0...v1.1.1) (2021-10-18)
 
 
