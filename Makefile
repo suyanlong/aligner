@@ -1,4 +1,4 @@
-# golang1.14.1 or latest
+# golang1.17 or latest
 # 1. make help
 # 2. make build
 # ...
@@ -15,6 +15,7 @@ GOBUILD=CGO_ENABLED=0 go build -ldflags '-X "github.com/suyanlong/aligner/versio
 
 PLATFORM_LIST = \
 	darwin-amd64 \
+	darwin-arm64 \
 	linux-386 \
 	linux-amd64 \
 	linux-armv5 \
@@ -34,7 +35,7 @@ WINDOWS_ARCH_LIST = \
 	windows-386 \
 	windows-amd64
 
-all: linux-amd64 darwin-amd64 windows-amd64 # Most used
+all: linux-amd64 darwin-amd64 darwin-arm64 windows-amd64 # Most used
 
 build: ## build binary
 	@$(GOBUILD)
@@ -60,6 +61,9 @@ help: ## Display this help screen
 
 darwin-amd64:
 	GOARCH=amd64 GOOS=darwin $(GOBUILD) -o $(BINDIR)/$(NAME)-$@
+
+darwin-arm64:
+	GOARCH=arm64 GOOS=darwin $(GOBUILD) -o $(BINDIR)/$(NAME)-$@
 
 linux-386:
 	GOARCH=386 GOOS=linux $(GOBUILD) -o $(BINDIR)/$(NAME)-$@
