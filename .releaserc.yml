@@ -18,8 +18,8 @@
           "replacements": [
             {
               "files": ["version/version.go"],
-              "from": "Version   = \"1.*\"",
-              "to": "Version   = \"${nextRelease.version}\"",
+              "from": 'Version   = "*"',
+              "to": 'Version   = "${nextRelease.version}"',
               "results": [
                 {
                   "file": "version/version.go",
