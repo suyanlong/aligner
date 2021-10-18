@@ -3,11 +3,6 @@
       "@semantic-release/commit-analyzer", #Default 1
       "@semantic-release/release-notes-generator", #Default 2
       [
-        "@semantic-release/exec", {
-          "prepareCmd": "make releases VERSION=${nextRelease.version}"
-        }
-      ],
-      [
         "@semantic-release/changelog",
         { "changelogFile": "CHANGELOG.md", "changelogTitle": "changelog" },
       ],
@@ -18,5 +13,10 @@
           {"assets": ["bin/*.gz","bin/*.zip"]}
       ],
       "@semantic-release/git",
+      [
+        "@semantic-release/exec", {
+          "prepareCmd": "make releases VERSION=${nextRelease.version}"
+        }
+      ],
     ] 
 }
