@@ -1,5 +1,12 @@
 changelog
 
+# [1.1.0](https://github.com/suyanlong/aligner/compare/v1.0.4...v1.1.0) (2021-10-18)
+
+
+### Features
+
+* **deps:** bump actions/stale from 3 to 4 ([93ab403](https://github.com/suyanlong/aligner/commit/93ab40341b3bfbf65e2d5dfc499cad21c474f2cd))
+
 ## [1.0.4](https://github.com/suyanlong/aligner/compare/v1.0.3...v1.0.4) (2021-10-18)
 
 
