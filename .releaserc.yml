@@ -4,7 +4,7 @@
       "@semantic-release/release-notes-generator", #Default 2
       [
         "@semantic-release/exec", {
-          "prepareCmd": "make releases VERSION=${nextRelease.version}}"
+          "prepareCmd": "make releases VERSION=${nextRelease.version}"
         }
       ],
       [
