@@ -43,6 +43,7 @@ jobs:
         with:
           branch: master
           extra_plugins: |
+            @semantic-release/exec
             @semantic-release/changelog
             @semantic-release/git
         env:
