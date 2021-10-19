@@ -2,12 +2,12 @@
   "plugins": [
       "conventional-changelog-ember",
       [
-        "@semantic-release/commit-analyzer", #Default 1
+        "@semantic-release/commit-analyzer",
         {
           "preset": "ember"
         }
       ],
-      "@semantic-release/release-notes-generator", #Default 2
+      "@semantic-release/release-notes-generator",
       [
         "@google/semantic-release-replace-plugin",
         {
