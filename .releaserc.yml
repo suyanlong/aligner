@@ -1,6 +1,6 @@
 { "branches": ["master", "next"], 
   "plugins": [
-      "conventional-changelog-ember",
+      "conventional-changelog/conventional-changelog-ember",
       [
         "@semantic-release/commit-analyzer",
         {
