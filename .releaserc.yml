@@ -1,5 +1,6 @@
 { "branches": ["master", "next"], 
   "plugins": [
+      "@conventional-changelog",
       [
         "@semantic-release/commit-analyzer", #Default 1
         {
