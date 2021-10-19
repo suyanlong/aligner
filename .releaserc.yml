@@ -1,6 +1,11 @@
 { "branches": ["master", "next"], 
   "plugins": [
-      "@semantic-release/commit-analyzer", #Default 1
+      [
+        "@semantic-release/commit-analyzer", #Default 1
+        {
+          "preset": "ember"
+        }
+      ],
       "@semantic-release/release-notes-generator", #Default 2
       [
         "@google/semantic-release-replace-plugin",
