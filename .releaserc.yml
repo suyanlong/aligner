@@ -1,17 +1,7 @@
 { "branches": ["master", "next"], 
   "plugins": [
-      [
-        "@semantic-release/commit-analyzer",
-        {
-          "preset": "jshint"
-        }
-      ],
-      [
-        "@semantic-release/release-notes-generator",
-        {
-          "preset": "jshint"
-        }
-      ],
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
       [
         "@google/semantic-release-replace-plugin",
         {
