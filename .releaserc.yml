@@ -6,7 +6,12 @@
           "preset": "jshint"
         }
       ],
-      "@semantic-release/release-notes-generator",
+      [
+        "@semantic-release/release-notes-generator",
+        {
+          "preset": "jshint"
+        }
+      ],
       [
         "@google/semantic-release-replace-plugin",
         {
