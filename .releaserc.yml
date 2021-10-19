@@ -3,7 +3,7 @@
       [
         "@semantic-release/commit-analyzer",
         {
-          "preset": "ember"
+          "preset": "jshint"
         }
       ],
       "@semantic-release/release-notes-generator",

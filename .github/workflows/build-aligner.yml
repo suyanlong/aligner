@@ -73,7 +73,7 @@ jobs:
         with:
           branch: master
           extra_plugins: |
-            conventional-changelog/conventional-changelog-ember
+            conventional-changelog/conventional-changelog-jshint
             @google/semantic-release-replace-plugin
             @semantic-release/exec
             @semantic-release/changelog
