@@ -1,5 +1,15 @@
 changelog
 
+<a name="1.1.3"></a>
+## [1.1.3](https://github.com/suyanlong/aligner/compare/v1.1.2...v1.1.3) (2021-10-19)
+
+
+### Bug Fixes
+
+* update semantic-release commit message conventions to ember ([7ecdd79](https://github.com/suyanlong/aligner/commit/7ecdd79))
+* update semantic-release commit message conventions to ember ([53f120f](https://github.com/suyanlong/aligner/commit/53f120f))
+* update semantic-release commit message conventions to ember1 ([4327928](https://github.com/suyanlong/aligner/commit/4327928))
+
 ## [1.1.3](https://github.com/suyanlong/aligner/compare/v1.1.2...v1.1.3) (2021-10-19)
 
 ## [1.1.5](https://github.com/suyanlong/aligner/compare/v1.1.4...v1.1.5) (2021-10-19)
