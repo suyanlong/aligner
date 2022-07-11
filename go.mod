@@ -3,7 +3,7 @@ module github.com/suyanlong/aligner
 go 1.17
 
 require (
-	github.com/cheggaaa/pb/v3 v3.0.8
+	github.com/cheggaaa/pb/v3 v3.1.0
 	github.com/huandu/xstrings v1.3.2
 	github.com/stretchr/testify v1.7.0
 	github.com/urfave/cli/v2 v2.3.0
@@ -21,6 +21,6 @@ require (
 	github.com/rivo/uniseg v0.2.0 // indirect
 	github.com/russross/blackfriday/v2 v2.0.1 // indirect
 	github.com/shurcooL/sanitized_anchor_name v1.0.0 // indirect
-	golang.org/x/sys v0.0.0-20210403161142-5e06dd20ab57 // indirect
+	golang.org/x/sys v0.0.0-20220503163025-988cb79eb6c6 // indirect
 	gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c // indirect
 )
