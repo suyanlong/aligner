@@ -4,7 +4,7 @@ go 1.17
 
 require (
 	github.com/cheggaaa/pb/v3 v3.0.8
-	github.com/huandu/xstrings v1.3.2
+	github.com/huandu/xstrings v1.4.0
 	github.com/stretchr/testify v1.7.0
 	github.com/urfave/cli/v2 v2.3.0
 )
